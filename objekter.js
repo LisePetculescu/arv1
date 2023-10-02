@@ -1,15 +1,19 @@
 "use strict";
 
-const harry = {
-  firstName: "Harry",
-  lastName: "Potter"
-};
+function constructStudent(firstName, lastName) {
+  const Student = {
+    firstName: firstName,
+    lastName: lastName,
+    get fullName() {
+      return this.firstName + " " + this.lastName;
+    }
+  };
+  return Student;
+}
 
-const ron = {
-  firstName: "Ron",
-  lastName: "Weasley"
-};
+const harry = constructStudent("Harry", "Potter");
+const ron = constructStudent("Ron", "Weasley");
 
-Object.defineProperty(ron, "House", { value: "Gryffindor", enumerable: true, configurable: true, writeable: true });
+Object.defineProperty(ron, "pet", { value: "Rat", enumerable: true, configurable: true, writable: true });
 
 console.log(harry, ron);
